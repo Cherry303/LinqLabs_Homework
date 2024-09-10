@@ -39,20 +39,23 @@ namespace MyHomeWork
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
+            this.comboBoxSeason = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.btnRegionBike = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnYearBike = new System.Windows.Forms.Button();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.btnSeasonBike = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnAllBicycle = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nwDataSet1 = new LinqLabs.NWDataSet();
+            this.productTableAdapter1 = new LinqLabs.NWDataSetTableAdapters.ProductTableAdapter();
+            this.productProductPhotoTableAdapter1 = new LinqLabs.NWDataSetTableAdapters.ProductProductPhotoTableAdapter();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -66,6 +69,7 @@ namespace MyHomeWork
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nwDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -175,19 +179,19 @@ namespace MyHomeWork
             this.label10.Location = new System.Drawing.Point(440, 175);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 18);
+            this.label10.Size = new System.Drawing.Size(23, 16);
             this.label10.TabIndex = 136;
             this.label10.Text = "年:";
             // 
-            // comboBox3
+            // comboBoxYear
             // 
-            this.comboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(519, 171);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(176, 26);
-            this.comboBox3.TabIndex = 135;
+            this.comboBoxYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.comboBoxYear.FormattingEnabled = true;
+            this.comboBoxYear.Location = new System.Drawing.Point(519, 171);
+            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxYear.Name = "comboBoxYear";
+            this.comboBoxYear.Size = new System.Drawing.Size(176, 24);
+            this.comboBoxYear.TabIndex = 135;
             // 
             // splitContainer1
             // 
@@ -201,17 +205,17 @@ namespace MyHomeWork
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.label10);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBoxYear);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker2);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBoxSeason);
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimePickerEnd);
+            this.splitContainer1.Panel1.Controls.Add(this.btnRegionBike);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
-            this.splitContainer1.Panel1.Controls.Add(this.button5);
-            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
-            this.splitContainer1.Panel1.Controls.Add(this.button10);
+            this.splitContainer1.Panel1.Controls.Add(this.btnYearBike);
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimePickerStart);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSeasonBike);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.button11);
+            this.splitContainer1.Panel1.Controls.Add(this.btnAllBicycle);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             // 
             // splitContainer1.Panel2
@@ -229,43 +233,43 @@ namespace MyHomeWork
             this.label8.Location = new System.Drawing.Point(440, 222);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 18);
+            this.label8.Size = new System.Drawing.Size(23, 16);
             this.label8.TabIndex = 132;
             this.label8.Text = "季:";
             // 
-            // comboBox2
+            // comboBoxSeason
             // 
-            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBoxSeason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.comboBoxSeason.FormattingEnabled = true;
+            this.comboBoxSeason.Items.AddRange(new object[] {
             "第一季",
             "第二季",
             "第三季",
             "第四季"});
-            this.comboBox2.Location = new System.Drawing.Point(519, 222);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(176, 26);
-            this.comboBox2.TabIndex = 131;
+            this.comboBoxSeason.Location = new System.Drawing.Point(519, 222);
+            this.comboBoxSeason.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxSeason.Name = "comboBoxSeason";
+            this.comboBoxSeason.Size = new System.Drawing.Size(176, 24);
+            this.comboBoxSeason.TabIndex = 131;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(859, 116);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(244, 26);
-            this.dateTimePicker2.TabIndex = 130;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(859, 116);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(244, 22);
+            this.dateTimePickerEnd.TabIndex = 130;
             // 
-            // button3
+            // btnRegionBike
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(67, 112);
-            this.button3.Margin = new System.Windows.Forms.Padding(5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(359, 42);
-            this.button3.TabIndex = 81;
-            this.button3.Text = "     區間腳踏車 ";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnRegionBike.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnRegionBike.Location = new System.Drawing.Point(67, 112);
+            this.btnRegionBike.Margin = new System.Windows.Forms.Padding(5);
+            this.btnRegionBike.Name = "btnRegionBike";
+            this.btnRegionBike.Size = new System.Drawing.Size(359, 42);
+            this.btnRegionBike.TabIndex = 81;
+            this.btnRegionBike.Text = "     區間腳踏車 ";
+            this.btnRegionBike.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -273,40 +277,40 @@ namespace MyHomeWork
             this.label7.Location = new System.Drawing.Point(799, 122);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 18);
+            this.label7.Size = new System.Drawing.Size(14, 16);
             this.label7.TabIndex = 129;
             this.label7.Text = "~";
             // 
-            // button5
+            // btnYearBike
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.Location = new System.Drawing.Point(68, 164);
-            this.button5.Margin = new System.Windows.Forms.Padding(5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(359, 42);
-            this.button5.TabIndex = 82;
-            this.button5.Text = "     某年腳踏車 ";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnYearBike.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnYearBike.Location = new System.Drawing.Point(68, 164);
+            this.btnYearBike.Margin = new System.Windows.Forms.Padding(5);
+            this.btnYearBike.Name = "btnYearBike";
+            this.btnYearBike.Size = new System.Drawing.Size(359, 42);
+            this.btnYearBike.TabIndex = 82;
+            this.btnYearBike.Text = "     某年腳踏車 ";
+            this.btnYearBike.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(519, 114);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(244, 26);
-            this.dateTimePicker1.TabIndex = 128;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(519, 114);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(244, 22);
+            this.dateTimePickerStart.TabIndex = 128;
             // 
-            // button10
+            // btnSeasonBike
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button10.ForeColor = System.Drawing.Color.Black;
-            this.button10.Location = new System.Drawing.Point(68, 215);
-            this.button10.Margin = new System.Windows.Forms.Padding(5);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(359, 42);
-            this.button10.TabIndex = 83;
-            this.button10.Text = "     某季腳踏車  ? 有幾筆 ?";
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnSeasonBike.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnSeasonBike.ForeColor = System.Drawing.Color.Black;
+            this.btnSeasonBike.Location = new System.Drawing.Point(68, 215);
+            this.btnSeasonBike.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSeasonBike.Name = "btnSeasonBike";
+            this.btnSeasonBike.Size = new System.Drawing.Size(359, 42);
+            this.btnSeasonBike.TabIndex = 83;
+            this.btnSeasonBike.Text = "     某季腳踏車  ? 有幾筆 ?";
+            this.btnSeasonBike.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -315,20 +319,21 @@ namespace MyHomeWork
             this.label3.Location = new System.Drawing.Point(435, 122);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
+            this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 127;
             this.label3.Text = "區間:";
             // 
-            // button11
+            // btnAllBicycle
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button11.Location = new System.Drawing.Point(67, 61);
-            this.button11.Margin = new System.Windows.Forms.Padding(5);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(359, 42);
-            this.button11.TabIndex = 84;
-            this.button11.Text = "     All 腳踏車 ";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnAllBicycle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAllBicycle.Location = new System.Drawing.Point(67, 61);
+            this.btnAllBicycle.Margin = new System.Windows.Forms.Padding(5);
+            this.btnAllBicycle.Name = "btnAllBicycle";
+            this.btnAllBicycle.Size = new System.Drawing.Size(359, 42);
+            this.btnAllBicycle.TabIndex = 84;
+            this.btnAllBicycle.Text = "     All 腳踏車 ";
+            this.btnAllBicycle.UseVisualStyleBackColor = false;
+            this.btnAllBicycle.Click += new System.EventHandler(this.btnAllBicycle_Click);
             // 
             // label6
             // 
@@ -337,13 +342,26 @@ namespace MyHomeWork
             this.label6.Location = new System.Drawing.Point(64, 23);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(357, 18);
+            this.label6.Size = new System.Drawing.Size(284, 16);
             this.label6.TabIndex = 105;
             this.label6.Text = "LINQ to AdventureWorks DataSet - ProductPhoto";
             // 
+            // nwDataSet1
+            // 
+            this.nwDataSet1.DataSetName = "NWDataSet";
+            this.nwDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productTableAdapter1
+            // 
+            this.productTableAdapter1.ClearBeforeFill = true;
+            // 
+            // productProductPhotoTableAdapter1
+            // 
+            this.productProductPhotoTableAdapter1.ClearBeforeFill = true;
+            // 
             // Frm作業_2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1462, 825);
             this.Controls.Add(this.splitContainer1);
@@ -365,6 +383,7 @@ namespace MyHomeWork
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nwDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,18 +399,21 @@ namespace MyHomeWork
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBoxSeason;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
+        private System.Windows.Forms.Button btnRegionBike;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnYearBike;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.Button btnSeasonBike;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnAllBicycle;
         private System.Windows.Forms.Label label6;
+        private LinqLabs.NWDataSet nwDataSet1;
+        private LinqLabs.NWDataSetTableAdapters.ProductTableAdapter productTableAdapter1;
+        private LinqLabs.NWDataSetTableAdapters.ProductProductPhotoTableAdapter productProductPhotoTableAdapter1;
     }
 }
