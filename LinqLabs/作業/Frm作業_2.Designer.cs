@@ -180,7 +180,7 @@ namespace MyHomeWork
             this.label10.Location = new System.Drawing.Point(440, 175);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 18);
+            this.label10.Size = new System.Drawing.Size(23, 16);
             this.label10.TabIndex = 136;
             this.label10.Text = "年:";
             // 
@@ -191,7 +191,7 @@ namespace MyHomeWork
             this.comboBoxYear.Location = new System.Drawing.Point(519, 171);
             this.comboBoxYear.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxYear.Name = "comboBoxYear";
-            this.comboBoxYear.Size = new System.Drawing.Size(176, 26);
+            this.comboBoxYear.Size = new System.Drawing.Size(176, 24);
             this.comboBoxYear.TabIndex = 135;
             // 
             // splitContainer1
@@ -234,7 +234,7 @@ namespace MyHomeWork
             this.label8.Location = new System.Drawing.Point(440, 222);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 18);
+            this.label8.Size = new System.Drawing.Size(23, 16);
             this.label8.TabIndex = 132;
             this.label8.Text = "季:";
             // 
@@ -250,7 +250,7 @@ namespace MyHomeWork
             this.comboBoxSeason.Location = new System.Drawing.Point(519, 222);
             this.comboBoxSeason.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSeason.Name = "comboBoxSeason";
-            this.comboBoxSeason.Size = new System.Drawing.Size(176, 26);
+            this.comboBoxSeason.Size = new System.Drawing.Size(176, 24);
             this.comboBoxSeason.TabIndex = 131;
             // 
             // dateTimePickerEnd
@@ -258,7 +258,7 @@ namespace MyHomeWork
             this.dateTimePickerEnd.Location = new System.Drawing.Point(859, 116);
             this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(244, 26);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(244, 22);
             this.dateTimePickerEnd.TabIndex = 130;
             this.dateTimePickerEnd.Value = new System.DateTime(2002, 1, 31, 0, 0, 0, 0);
             // 
@@ -280,7 +280,7 @@ namespace MyHomeWork
             this.label7.Location = new System.Drawing.Point(799, 122);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 18);
+            this.label7.Size = new System.Drawing.Size(14, 16);
             this.label7.TabIndex = 129;
             this.label7.Text = "~";
             // 
@@ -294,13 +294,14 @@ namespace MyHomeWork
             this.btnYearBike.TabIndex = 82;
             this.btnYearBike.Text = "     某年腳踏車 ";
             this.btnYearBike.UseVisualStyleBackColor = false;
+            this.btnYearBike.Click += new System.EventHandler(this.btnYearBike_Click);
             // 
             // dateTimePickerStart
             // 
             this.dateTimePickerStart.Location = new System.Drawing.Point(519, 114);
             this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(244, 26);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(244, 22);
             this.dateTimePickerStart.TabIndex = 128;
             this.dateTimePickerStart.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             // 
@@ -315,6 +316,7 @@ namespace MyHomeWork
             this.btnSeasonBike.TabIndex = 83;
             this.btnSeasonBike.Text = "     某季腳踏車  ? 有幾筆 ?";
             this.btnSeasonBike.UseVisualStyleBackColor = false;
+            this.btnSeasonBike.Click += new System.EventHandler(this.btnSeasonBike_Click);
             // 
             // label3
             // 
@@ -323,7 +325,7 @@ namespace MyHomeWork
             this.label3.Location = new System.Drawing.Point(435, 122);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
+            this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 127;
             this.label3.Text = "區間:";
             // 
@@ -346,7 +348,7 @@ namespace MyHomeWork
             this.label6.Location = new System.Drawing.Point(64, 23);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(357, 18);
+            this.label6.Size = new System.Drawing.Size(284, 16);
             this.label6.TabIndex = 105;
             this.label6.Text = "LINQ to AdventureWorks DataSet - ProductPhoto";
             // 
@@ -361,7 +363,7 @@ namespace MyHomeWork
             // 
             // Frm作業_2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1462, 825);
             this.Controls.Add(this.splitContainer1);
@@ -370,6 +372,7 @@ namespace MyHomeWork
             this.Name = "Frm作業_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm作業_2";
+            this.Load += new System.EventHandler(this.Frm作業_2_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
