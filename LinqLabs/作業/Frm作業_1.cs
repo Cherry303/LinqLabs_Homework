@@ -53,6 +53,8 @@ namespace MyHomeWork
 
         private void btnOrderAll(object sender, EventArgs e)
         {
+            lblMaster.Text = "訂單";
+
             dataGridView1.DataSource = null;
             // 將資料庫中的 Orders 表數據填充到本地的 nwDataSet1.Orders 表中
             this.ordersTableAdapter1.Fill(this.nwDataSet1.Orders);
@@ -95,6 +97,8 @@ namespace MyHomeWork
 
         private void btnOrderAndOrderDetail_Click(object sender, EventArgs e)
         {
+            lblMaster.Text = "訂單";
+
             if (comboBoxoOrderYear.SelectedItem != null)
             {
                 // 清空 DataGridView 的資料
@@ -159,6 +163,11 @@ namespace MyHomeWork
 
             // 將篩選結果顯示在 DataGridView 中
             dataGridView2.DataSource = orderDetail.ToList();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            lblMaster.Text = "產品列表";
         }
     }
 }

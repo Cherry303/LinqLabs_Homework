@@ -61,6 +61,7 @@ namespace MyHomeWork
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ordersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnProducts = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -202,6 +203,7 @@ namespace MyHomeWork
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.button13);
             this.splitContainer1.Panel1.Controls.Add(this.comboBoxoOrderYear);
+            this.splitContainer1.Panel1.Controls.Add(this.btnProducts);
             this.splitContainer1.Panel1.Controls.Add(this.button12);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -224,10 +226,10 @@ namespace MyHomeWork
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(515, 220);
+            this.label3.Location = new System.Drawing.Point(677, 226);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(219, 14);
+            this.label3.Size = new System.Drawing.Size(258, 17);
             this.label3.TabIndex = 145;
             this.label3.Text = "LINQ to Northwind DataSet - Products";
             // 
@@ -239,7 +241,7 @@ namespace MyHomeWork
             this.label9.Location = new System.Drawing.Point(919, 134);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 14);
+            this.label9.Size = new System.Drawing.Size(31, 17);
             this.label9.TabIndex = 144;
             this.label9.Text = "年:";
             // 
@@ -271,7 +273,7 @@ namespace MyHomeWork
             // 
             this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button13.ForeColor = System.Drawing.Color.Black;
-            this.button13.Location = new System.Drawing.Point(971, 249);
+            this.button13.Location = new System.Drawing.Point(1133, 255);
             this.button13.Margin = new System.Windows.Forms.Padding(5);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(137, 42);
@@ -288,14 +290,14 @@ namespace MyHomeWork
             this.comboBoxoOrderYear.Location = new System.Drawing.Point(971, 130);
             this.comboBoxoOrderYear.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxoOrderYear.Name = "comboBoxoOrderYear";
-            this.comboBoxoOrderYear.Size = new System.Drawing.Size(176, 21);
+            this.comboBoxoOrderYear.Size = new System.Drawing.Size(176, 25);
             this.comboBoxoOrderYear.TabIndex = 142;
             // 
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button12.ForeColor = System.Drawing.Color.Black;
-            this.button12.Location = new System.Drawing.Point(822, 249);
+            this.button12.Location = new System.Drawing.Point(984, 255);
             this.button12.Margin = new System.Windows.Forms.Padding(5);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(137, 42);
@@ -307,10 +309,10 @@ namespace MyHomeWork
             // 
             this.textBox1.Font = new System.Drawing.Font("新細明體", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox1.Location = new System.Drawing.Point(622, 253);
+            this.textBox1.Location = new System.Drawing.Point(784, 259);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 23);
+            this.textBox1.Size = new System.Drawing.Size(180, 27);
             this.textBox1.TabIndex = 139;
             this.textBox1.Text = "10";
             // 
@@ -319,10 +321,10 @@ namespace MyHomeWork
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(503, 257);
+            this.label1.Location = new System.Drawing.Point(665, 263);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 14);
+            this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 140;
             this.label1.Text = "一頁幾筆";
             // 
@@ -334,7 +336,7 @@ namespace MyHomeWork
             this.label5.Location = new System.Drawing.Point(515, 34);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(207, 14);
+            this.label5.Size = new System.Drawing.Size(246, 17);
             this.label5.TabIndex = 141;
             this.label5.Text = "LINQ to Northwind DataSet - Orders";
             // 
@@ -346,7 +348,7 @@ namespace MyHomeWork
             this.label4.Location = new System.Drawing.Point(57, 22);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 14);
+            this.label4.Size = new System.Drawing.Size(145, 17);
             this.label4.TabIndex = 103;
             this.label4.Text = "LINQ to FileInfo[]";
             // 
@@ -392,7 +394,7 @@ namespace MyHomeWork
             this.label2.Location = new System.Drawing.Point(574, 519);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 14);
+            this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 135;
             this.label2.Text = "Year:";
             // 
@@ -433,9 +435,22 @@ namespace MyHomeWork
             this.ordersBindingSource2.DataMember = "Orders";
             this.ordersBindingSource2.DataSource = this.nwDataSet1BindingSource;
             // 
+            // btnProducts
+            // 
+            this.btnProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnProducts.ForeColor = System.Drawing.Color.Black;
+            this.btnProducts.Location = new System.Drawing.Point(518, 255);
+            this.btnProducts.Margin = new System.Windows.Forms.Padding(5);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Size = new System.Drawing.Size(137, 42);
+            this.btnProducts.TabIndex = 138;
+            this.btnProducts.Text = "顯示Products";
+            this.btnProducts.UseVisualStyleBackColor = false;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
+            // 
             // Frm作業_1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1464, 801);
             this.Controls.Add(this.splitContainer1);
@@ -502,5 +517,6 @@ namespace MyHomeWork
         private System.Windows.Forms.BindingSource nwDataSet1BindingSource;
         private System.Windows.Forms.BindingSource ordersBindingSource2;
         private System.Windows.Forms.BindingSource ordersBindingSource1;
+        private System.Windows.Forms.Button btnProducts;
     }
 }

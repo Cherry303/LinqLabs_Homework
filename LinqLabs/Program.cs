@@ -1,4 +1,5 @@
 ﻿
+using LinqLabs;
 using MyHomeWork;
 using System;
 using System.Collections.Generic;
@@ -31,8 +32,8 @@ namespace Starter
             //Application.Run(new FrmLINQ_To_XXX());
             //Application.Run(new FrmLinq_To_Entity());
 
-            //Application.Run(new Frm作業_1());
-            Application.Run(new Frm作業_2());
+            Application.Run(new FrmChooseForm());
+            //Application.Run(new Frm作業_2());
 
         }
     }

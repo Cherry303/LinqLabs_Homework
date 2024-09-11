@@ -76,6 +76,12 @@
     <Compile Include="5. FrmLinq_To_Entity.Designer.cs">
       <DependentUpon>5. FrmLinq_To_Entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChooseForm.Designer.cs">
+      <DependentUpon>FrmChooseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NWDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,6 +101,12 @@
     <Compile Include="作業\Frm作業_2.Designer.cs">
       <DependentUpon>Frm作業_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="作業\Frm作業_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="作業\Frm作業_3.Designer.cs">
+      <DependentUpon>Frm作業_3.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="1. FrmHelloLinq.resx">
       <DependentUpon>1. FrmHelloLinq.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="5. FrmLinq_To_Entity.resx">
       <DependentUpon>5. FrmLinq_To_Entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChooseForm.resx">
+      <DependentUpon>FrmChooseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -125,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="作業\Frm作業_2.resx">
       <DependentUpon>Frm作業_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="作業\Frm作業_3.resx">
+      <DependentUpon>Frm作業_3.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="NWDataSet.xsc">
       <DependentUpon>NWDataSet.xsd</DependentUpon>
