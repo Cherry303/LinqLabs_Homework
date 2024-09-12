@@ -242,11 +242,6 @@ namespace MyHomeWork
             // 
             this.comboBoxSeason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.comboBoxSeason.FormattingEnabled = true;
-            this.comboBoxSeason.Items.AddRange(new object[] {
-            "第一季",
-            "第二季",
-            "第三季",
-            "第四季"});
             this.comboBoxSeason.Location = new System.Drawing.Point(519, 222);
             this.comboBoxSeason.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSeason.Name = "comboBoxSeason";

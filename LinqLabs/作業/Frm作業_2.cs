@@ -123,7 +123,7 @@ namespace MyHomeWork
             for(int i=1;i<5;i++)
             {
                 season = $"第{i}季";
-                comboBoxYear.Items.Add(season);
+                comboBoxSeason.Items.Add(season);
             }
 
         }
@@ -167,19 +167,19 @@ namespace MyHomeWork
         {
             if (month <= 3)
             {
-                return "第一季";
+                return "第1季";
             }
             else if (month > 3 && month <= 6)
             {
-                return "第二季";
+                return "第2季";
             }
             else if (month > 6 && month <= 9)
             {
-                return "第三季";
+                return "第3季";
             }
             else
             {
-                return "第四季";
+                return "第4季";
             }
         }
     }
