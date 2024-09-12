@@ -98,9 +98,12 @@ namespace MyHomeWork
             if (_isSeason == true)
             {
 
-                int currentID = 0;
+                int currentID = 0;  // 初始化一個整數變數 currentID，用來保存從 DataGridView 當前行中獲取的 ProductPhotoID
+
+                // 嘗試將 DataGridView 當前行的 ProductPhotoID 轉換為整數，並賦值給 currentID
                 if (int.TryParse(gridView.CurrentRow.Cells["ProductPhotoID"].Value.ToString(), out currentID))
                 {
+                    // 如果轉換成功，執行下面的查詢
                     //var q1 = from o in this.nwDataSet1.ProductPhoto
                     //         where o.ModifiedDate.Month.distinctSeason() == comboBoxSeason.SelectedItem.ToString()
                     //         select o.ProductPhotoID;
