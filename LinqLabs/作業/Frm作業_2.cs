@@ -15,7 +15,8 @@ namespace MyHomeWork
     public partial class Frm作業_2 : Form
     {
         int _position = -1;
-        List<NWDataSet.ProductPhotoRow> _photolist {  get; set; }
+        bool _isSeason = false;
+        List<NWDataSet.ProductPhotoRow> _photolist { get; set; }
         public Frm作業_2()
         {
             InitializeComponent();
@@ -29,12 +30,14 @@ namespace MyHomeWork
 
             // 定義一個 LINQ 查詢
             IEnumerable<NWDataSet.ProductPhotoRow> q = from o in this.nwDataSet1.ProductPhoto
-                                                 orderby o.ModifiedDate
-                                                 select o; 
+                                                       orderby o.ModifiedDate
+                                                       select o;
 
             // 將篩選和排序後的結果轉換為列表，並綁定到 DataGridView 控制項上，顯示在 UI 中
             _photolist = q.ToList();
             this.dataGridView1.DataSource = _photolist;
+
+            _isSeason = false;
         }
 
         private void btnRegionBike_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace MyHomeWork
 
             // 定義一個 LINQ 查詢，篩選 Orders 表中 ShipRegion 和 ShipPostalCode 不為空的訂單
             IEnumerable<NWDataSet.ProductPhotoRow> q = from o in this.nwDataSet1.ProductPhoto
-                                                       where o.ModifiedDate >= dateTimePickerStart.Value 
+                                                       where o.ModifiedDate >= dateTimePickerStart.Value
                                                              && o.ModifiedDate <= dateTimePickerEnd.Value
                                                        orderby o.ModifiedDate
                                                        select o;
@@ -53,6 +56,8 @@ namespace MyHomeWork
             // 將篩選和排序後的結果轉換為列表，並綁定到 DataGridView 控制項上，顯示在 UI 中
             _photolist = q.ToList();
             this.dataGridView1.DataSource = _photolist;
+
+            _isSeason = false;
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -62,6 +67,12 @@ namespace MyHomeWork
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
+            // 轉回DataGridVeiw物件
+            var gridView = (DataGridView)sender;
+
+
+            //int currentID = int.Parse(gridView.CurrentRow.Cells["ProductPhotoID"].Value.ToString());
+            
 
             //清空資料
             if (this.pictureBox1.Image != null)
@@ -69,7 +80,7 @@ namespace MyHomeWork
                 this.pictureBox1.Image = null;
             }
 
-            if (_photolist[_position] != null)
+            if (_isSeason == false && _photolist[_position] != null)
             {
                 // 將 byte[] 轉換為 MemoryStream，並從中創建 Image
                 using (MemoryStream ms = new MemoryStream(_photolist[_position].LargePhoto))
@@ -78,10 +89,41 @@ namespace MyHomeWork
                     this.pictureBox1.Image = bikeImage;  // 將圖片顯示在 PictureBox 中
                 }
             }
-            else
+            if (_isSeason == false && _photolist[_position] == null)
             {
                 // 如果沒有圖片資料，清空 PictureBox
                 this.pictureBox1.Image = null;
+            }
+
+            if (_isSeason == true)
+            {
+
+                int currentID = 0;
+                if (int.TryParse(gridView.CurrentRow.Cells["ProductPhotoID"].Value.ToString(), out currentID))
+                {
+                    //var q1 = from o in this.nwDataSet1.ProductPhoto
+                    //         where o.ModifiedDate.Month.distinctSeason() == comboBoxSeason.SelectedItem.ToString()
+                    //         select o.ProductPhotoID;
+                    //int CurrentID = q1.ToList()[_position];
+
+
+                    // 定義一個 LINQ 查詢
+                    var q2 = from o in this.nwDataSet1.ProductPhoto
+                             where o.ModifiedDate.Month.distinctSeason() == comboBoxSeason.SelectedItem.ToString()
+                             && o.ProductPhotoID == currentID
+                             select o.LargePhoto;
+                    var f = q2.FirstOrDefault();
+
+                    // 將 byte[] 轉換為 MemoryStream，並從中創建 Image
+                    using (MemoryStream ms = new MemoryStream(f))
+                    {
+                        Image bikeImage = Image.FromStream(ms);  // 創建 Image 物件
+                        this.pictureBox1.Image = bikeImage;  // 將圖片顯示在 PictureBox 中
+                    }
+
+                }
+
+
             }
         }
 
@@ -100,6 +142,8 @@ namespace MyHomeWork
             // 將篩選和排序後的結果轉換為列表，並綁定到 DataGridView 控制項上，顯示在 UI 中
             _photolist = q.ToList();
             this.dataGridView1.DataSource = _photolist;
+
+            _isSeason = false;
         }
 
         private void Frm作業_2_Load(object sender, EventArgs e)
@@ -110,8 +154,8 @@ namespace MyHomeWork
 
             // 定義一個 LINQ 查詢
             IEnumerable<int> q = (from o in this.nwDataSet1.ProductPhoto
-                                 orderby o.ModifiedDate
-                                 select o.ModifiedDate.Year).Distinct();
+                                  orderby o.ModifiedDate
+                                  select o.ModifiedDate.Year).Distinct();
             foreach (int i in q)
             {
                 comboBoxYear.Items.Add(i);
@@ -120,7 +164,7 @@ namespace MyHomeWork
             //============季度==============
             this.comboBoxSeason.Text = "請選擇季度";
             string season = "";
-            for(int i=1;i<5;i++)
+            for (int i = 1; i < 5; i++)
             {
                 season = $"第{i}季";
                 comboBoxSeason.Items.Add(season);
@@ -143,6 +187,7 @@ namespace MyHomeWork
                     {
                         o.ThumbNailPhoto,
                         o.ThumbnailPhotoFileName,
+                        o.ProductPhotoID,
                         o.LargePhoto,
                         o.LargePhotoFileName,
                         o.ModifiedDate,
@@ -152,11 +197,13 @@ namespace MyHomeWork
             // 將篩選和排序後的結果轉換為列表，並綁定到 DataGridView 控制項上，顯示在 UI 中
             var photolist = q.ToList();
             this.dataGridView1.DataSource = photolist;
+
+            _isSeason = true;
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-
+            //
         }
     }
     // 擴充方法定義
