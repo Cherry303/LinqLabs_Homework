@@ -15,6 +15,8 @@ namespace MyHomeWork
     public partial class Frm作業_1 : Form
     {
         int _orderposition = -1;
+
+        System.IO.FileInfo[] _files {  get; set; }
         List<NWDataSet.OrdersRow> _orderlist {  get; set; }
         public Frm作業_1()
         {
@@ -35,14 +37,12 @@ namespace MyHomeWork
 
         private void btnlog_Click(object sender, EventArgs e)
         {
-            // 創建 DirectoryInfo 對象，用來訪問目錄中的文件
-            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(@"c:\windows");
+            this.lblMaster.Text = "有log副檔名的檔案";
 
-            // 獲取目錄中的所有文件
-            System.IO.FileInfo[] files = dir.GetFiles();
+            dataGridView1.DataSource = null;
 
             // 使用 LINQ 查詢篩選出擴展名為 ".log" 的文件
-            var f = from p in files
+            var f = from p in _files
                     where p.Extension == ".log"
                     select p;
 
@@ -73,6 +73,14 @@ namespace MyHomeWork
 
         private void Frm作業_1_Load(object sender, EventArgs e)
         {
+            // 創建 DirectoryInfo 對象，用來訪問目錄中的文件
+            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(@"c:\windows");
+
+            // 獲取目錄中的所有文件
+            _files = dir.GetFiles();
+
+            //====================================================================
+
             // 將資料庫中的 Orders 表數據填充到本地的 nwDataSet1.Orders 表中
             this.ordersTableAdapter1.Fill(this.nwDataSet1.Orders);
             // 取得所有不重複的年份並塞入 comboBoxOrderYear
@@ -91,6 +99,7 @@ namespace MyHomeWork
             {
                 this.comboBoxoOrderYear.Items.Add(year);  // 將年份添加到 ComboBox 控制項中
             }
+
 
 
         }
@@ -148,26 +157,60 @@ namespace MyHomeWork
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            int orderIDindex = _orderlist[_orderposition].OrderID;
+            if(_orderlist!= null)
+            {
+                int orderIDindex = _orderlist[_orderposition].OrderID;
 
-            // 清空 DataGridView 的資料
-            dataGridView2.DataSource = null;
+                // 清空 DataGridView 的資料
+                dataGridView2.DataSource = null;
 
-            // 重新填充 Order_Details 表的資料
-            this.order_DetailsTableAdapter1.Fill(this.nwDataSet1.Order_Details);
+                // 重新填充 Order_Details 表的資料
+                this.order_DetailsTableAdapter1.Fill(this.nwDataSet1.Order_Details);
 
-            // 使用 LINQ 查詢篩選資料
-            IEnumerable<NWDataSet.Order_DetailsRow> orderDetail = from o in this.nwDataSet1.Order_Details
-                                                                  where o.OrderID == orderIDindex
-                                                                  select o;
+                // 使用 LINQ 查詢篩選資料
+                IEnumerable<NWDataSet.Order_DetailsRow> orderDetail = from o in this.nwDataSet1.Order_Details
+                                                                      where o.OrderID == orderIDindex
+                                                                      select o;
 
-            // 將篩選結果顯示在 DataGridView 中
-            dataGridView2.DataSource = orderDetail.ToList();
+                // 將篩選結果顯示在 DataGridView 中
+                dataGridView2.DataSource = orderDetail.ToList();
+            }
+            
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
             lblMaster.Text = "產品列表";
+        }
+
+        private void btn2017Creaded_Click(object sender, EventArgs e)
+        {
+            this.lblMaster.Text = "2024年建立的檔案";
+
+            dataGridView1.DataSource = null;
+
+            // 使用 LINQ 查詢篩選出擴展名為 ".log" 的文件
+            var f = from p in _files
+                    where p.CreationTime.Year==2024
+                    select p;
+
+            // 將篩選出的文件顯示在 DataGridView 中
+            this.dataGridView1.DataSource = f.ToList();
+        }
+
+        private void btnBigfile_Click(object sender, EventArgs e)
+        {
+            this.lblMaster.Text = "大檔案";
+
+            dataGridView1.DataSource = null;
+
+            // 使用 LINQ 查詢篩選出擴展名為 ".log" 的文件
+            var f = from p in _files
+                    where p.Length>500000
+                    select p;
+
+            // 將篩選出的文件顯示在 DataGridView 中
+            this.dataGridView1.DataSource = f.ToList();
         }
     }
 }

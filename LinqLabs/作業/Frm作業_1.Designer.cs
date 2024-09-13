@@ -44,14 +44,15 @@ namespace MyHomeWork
             this.button1 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.comboBoxoOrderYear = new System.Windows.Forms.ComboBox();
+            this.btnProducts = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn2017Creaded = new System.Windows.Forms.Button();
+            this.btnBigfile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.nwDataSet1 = new LinqLabs.NWDataSet();
@@ -61,7 +62,7 @@ namespace MyHomeWork
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ordersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnProducts = new System.Windows.Forms.Button();
+            this.productsTableAdapter1 = new LinqLabs.NWDataSetTableAdapters.ProductsTableAdapter();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -210,8 +211,8 @@ namespace MyHomeWork
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.button14);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.btn2017Creaded);
+            this.splitContainer1.Panel1.Controls.Add(this.btnBigfile);
             // 
             // splitContainer1.Panel2
             // 
@@ -293,6 +294,19 @@ namespace MyHomeWork
             this.comboBoxoOrderYear.Size = new System.Drawing.Size(176, 25);
             this.comboBoxoOrderYear.TabIndex = 142;
             // 
+            // btnProducts
+            // 
+            this.btnProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnProducts.ForeColor = System.Drawing.Color.Black;
+            this.btnProducts.Location = new System.Drawing.Point(518, 255);
+            this.btnProducts.Margin = new System.Windows.Forms.Padding(5);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Size = new System.Drawing.Size(137, 42);
+            this.btnProducts.TabIndex = 138;
+            this.btnProducts.Text = "顯示Products";
+            this.btnProducts.UseVisualStyleBackColor = false;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
+            // 
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -364,27 +378,29 @@ namespace MyHomeWork
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.btnlog_Click);
             // 
-            // button2
+            // btn2017Creaded
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(57, 126);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(372, 42);
-            this.button2.TabIndex = 72;
-            this.button2.Text = "     FileInfo[]   - 2017 Created - oerder ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn2017Creaded.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn2017Creaded.Location = new System.Drawing.Point(57, 126);
+            this.btn2017Creaded.Margin = new System.Windows.Forms.Padding(5);
+            this.btn2017Creaded.Name = "btn2017Creaded";
+            this.btn2017Creaded.Size = new System.Drawing.Size(372, 42);
+            this.btn2017Creaded.TabIndex = 72;
+            this.btn2017Creaded.Text = "     FileInfo[]   - 2024 Created - oerder ";
+            this.btn2017Creaded.UseVisualStyleBackColor = false;
+            this.btn2017Creaded.Click += new System.EventHandler(this.btn2017Creaded_Click);
             // 
-            // button4
+            // btnBigfile
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button4.Location = new System.Drawing.Point(61, 187);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(372, 42);
-            this.button4.TabIndex = 124;
-            this.button4.Text = "     FileInfo[]   - 大檔案";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnBigfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnBigfile.Location = new System.Drawing.Point(61, 187);
+            this.btnBigfile.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBigfile.Name = "btnBigfile";
+            this.btnBigfile.Size = new System.Drawing.Size(372, 42);
+            this.btnBigfile.TabIndex = 124;
+            this.btnBigfile.Text = "     FileInfo[]   - 大檔案";
+            this.btnBigfile.UseVisualStyleBackColor = false;
+            this.btnBigfile.Click += new System.EventHandler(this.btnBigfile_Click);
             // 
             // label2
             // 
@@ -435,18 +451,9 @@ namespace MyHomeWork
             this.ordersBindingSource2.DataMember = "Orders";
             this.ordersBindingSource2.DataSource = this.nwDataSet1BindingSource;
             // 
-            // btnProducts
+            // productsTableAdapter1
             // 
-            this.btnProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnProducts.ForeColor = System.Drawing.Color.Black;
-            this.btnProducts.Location = new System.Drawing.Point(518, 255);
-            this.btnProducts.Margin = new System.Windows.Forms.Padding(5);
-            this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Size = new System.Drawing.Size(137, 42);
-            this.btnProducts.TabIndex = 138;
-            this.btnProducts.Text = "顯示Products";
-            this.btnProducts.UseVisualStyleBackColor = false;
-            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
+            this.productsTableAdapter1.ClearBeforeFill = true;
             // 
             // Frm作業_1
             // 
@@ -458,6 +465,7 @@ namespace MyHomeWork
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm作業_1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm作業_1";
             this.Load += new System.EventHandler(this.Frm作業_1_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -496,8 +504,8 @@ namespace MyHomeWork
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn2017Creaded;
+        private System.Windows.Forms.Button btnBigfile;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label3;
@@ -518,5 +526,6 @@ namespace MyHomeWork
         private System.Windows.Forms.BindingSource ordersBindingSource2;
         private System.Windows.Forms.BindingSource ordersBindingSource1;
         private System.Windows.Forms.Button btnProducts;
+        private LinqLabs.NWDataSetTableAdapters.ProductsTableAdapter productsTableAdapter1;
     }
 }
