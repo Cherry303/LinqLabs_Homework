@@ -141,7 +141,7 @@ namespace MyHomeWork
                 // 清空 DataGridView 的資料
                 dataGridView1.DataSource = null;
 
-                // 重新填充 Orders 表的資料
+                // 重新填充 Orders 表的資料到DataSet
                 this.ordersTableAdapter1.Fill(this.nwDataSet1.Orders);
 
                 // 使用 LINQ 查詢篩選資料
