@@ -46,7 +46,7 @@ namespace MyHomeWork
             this.comboBoxoOrderYear = new System.Windows.Forms.ComboBox();
             this.btnProducts = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPageCount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -206,7 +206,7 @@ namespace MyHomeWork
             this.splitContainer1.Panel1.Controls.Add(this.comboBoxoOrderYear);
             this.splitContainer1.Panel1.Controls.Add(this.btnProducts);
             this.splitContainer1.Panel1.Controls.Add(this.button12);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.textBoxPageCount);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
@@ -230,7 +230,7 @@ namespace MyHomeWork
             this.label3.Location = new System.Drawing.Point(677, 226);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(258, 17);
+            this.label3.Size = new System.Drawing.Size(219, 14);
             this.label3.TabIndex = 145;
             this.label3.Text = "LINQ to Northwind DataSet - Products";
             // 
@@ -242,7 +242,7 @@ namespace MyHomeWork
             this.label9.Location = new System.Drawing.Point(919, 134);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 17);
+            this.label9.Size = new System.Drawing.Size(27, 14);
             this.label9.TabIndex = 144;
             this.label9.Text = "年:";
             // 
@@ -281,7 +281,7 @@ namespace MyHomeWork
             this.button13.TabIndex = 137;
             this.button13.Text = "下一頁";
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // comboBoxoOrderYear
             // 
@@ -291,7 +291,7 @@ namespace MyHomeWork
             this.comboBoxoOrderYear.Location = new System.Drawing.Point(971, 130);
             this.comboBoxoOrderYear.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxoOrderYear.Name = "comboBoxoOrderYear";
-            this.comboBoxoOrderYear.Size = new System.Drawing.Size(176, 25);
+            this.comboBoxoOrderYear.Size = new System.Drawing.Size(176, 21);
             this.comboBoxoOrderYear.TabIndex = 142;
             // 
             // btnProducts
@@ -318,17 +318,19 @@ namespace MyHomeWork
             this.button12.TabIndex = 138;
             this.button12.Text = "上一頁";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // textBox1
+            // textBoxPageCount
             // 
-            this.textBox1.Font = new System.Drawing.Font("新細明體", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox1.Location = new System.Drawing.Point(784, 259);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 27);
-            this.textBox1.TabIndex = 139;
-            this.textBox1.Text = "10";
+            this.textBoxPageCount.Font = new System.Drawing.Font("新細明體", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBoxPageCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.textBoxPageCount.Location = new System.Drawing.Point(784, 259);
+            this.textBoxPageCount.Margin = new System.Windows.Forms.Padding(5);
+            this.textBoxPageCount.Name = "textBoxPageCount";
+            this.textBoxPageCount.Size = new System.Drawing.Size(180, 23);
+            this.textBoxPageCount.TabIndex = 139;
+            this.textBoxPageCount.Text = "10";
+            this.textBoxPageCount.TextChanged += new System.EventHandler(this.textBoxPageCount_TextChanged);
             // 
             // label1
             // 
@@ -338,7 +340,7 @@ namespace MyHomeWork
             this.label1.Location = new System.Drawing.Point(665, 263);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(67, 14);
             this.label1.TabIndex = 140;
             this.label1.Text = "一頁幾筆";
             // 
@@ -350,7 +352,7 @@ namespace MyHomeWork
             this.label5.Location = new System.Drawing.Point(515, 34);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(246, 17);
+            this.label5.Size = new System.Drawing.Size(207, 14);
             this.label5.TabIndex = 141;
             this.label5.Text = "LINQ to Northwind DataSet - Orders";
             // 
@@ -362,7 +364,7 @@ namespace MyHomeWork
             this.label4.Location = new System.Drawing.Point(57, 22);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 17);
+            this.label4.Size = new System.Drawing.Size(125, 14);
             this.label4.TabIndex = 103;
             this.label4.Text = "LINQ to FileInfo[]";
             // 
@@ -410,7 +412,7 @@ namespace MyHomeWork
             this.label2.Location = new System.Drawing.Point(574, 519);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 17);
+            this.label2.Size = new System.Drawing.Size(41, 14);
             this.label2.TabIndex = 135;
             this.label2.Text = "Year:";
             // 
@@ -457,7 +459,7 @@ namespace MyHomeWork
             // 
             // Frm作業_1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1464, 801);
             this.Controls.Add(this.splitContainer1);
@@ -515,7 +517,7 @@ namespace MyHomeWork
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.ComboBox comboBoxoOrderYear;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPageCount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private LinqLabs.NWDataSet nwDataSet1;
