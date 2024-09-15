@@ -525,6 +525,30 @@ namespace LinqLabs.作業
             dataGridView1.DataSource = result.ToList();
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource= null;
+
+            var t = (from p in dbContext.Products
+                    join c in dbContext.Categories
+                    on p.CategoryID equals c.CategoryID
+                    orderby p.UnitPrice descending
+                    select new
+                    {
+                        p.ProductName,
+                        p.UnitPrice,
+                        c.CategoryName
+                    }).Take(5);
+
+            dataGridView1.DataSource = t.ToList();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            bool a = dbContext.Products.Any(p => p.UnitPrice > 300);
+            MessageBox.Show($"產品中是否有大於300元的商品 : {a}");
+        }
     }
 
 }
